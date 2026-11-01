@@ -48,16 +48,16 @@
 - [x] Initial git commit for foundation and state tracker
 
 ### Phase 2: React Bits & Interactive UI Primitives (`src/components/ui/`)
-- [/] `SpotlightGrid`: Interactive cursor-reactive spotlight background with subtle geometric grid
-- [ ] `DecryptedText`: High-tech character scrambling/decoding effect for headings and roles
-- [ ] `TiltCard3D`: 3D perspective tilt card with light reflection for interactive cards
-- [ ] `MagneticButton`: Physics-based spring magnetic pull effect for primary buttons & social links
-- [ ] `TechMarquee`: Infinite smooth marquee with pause-on-hover for technology skills
-- [ ] `InteractiveCanvas3D`: Procedural Three.js floating crystalline/polyhedral mesh with mouse parallax
-- [ ] Commit & state update for UI primitives
+- [x] `SpotlightGrid`: Interactive cursor-reactive spotlight background with subtle geometric grid
+- [x] `DecryptedText`: High-tech character scrambling/decoding effect for headings and roles
+- [x] `TiltCard3D`: 3D perspective tilt card with light reflection for interactive cards
+- [x] `MagneticButton`: Physics-based spring magnetic pull effect for primary buttons & social links
+- [x] `TechMarquee`: Infinite smooth marquee with pause-on-hover for technology skills
+- [x] `InteractiveCanvas3D`: Procedural Three.js floating crystalline/polyhedral mesh with mouse parallax
+- [x] Commit & state update for UI primitives
 
 ### Phase 3: Layout & Navigation Components
-- [ ] `Navbar`: Glassmorphic floating header with active section tracking, logo, resume download button, and mobile sheet menu
+- [/] `Navbar`: Glassmorphic floating header with active section tracking, logo, resume download button, and mobile sheet menu
 - [ ] `Footer`: Polished footer with quick navigation, social links, status indicator, and copyright
 - [ ] Commit & state update for layout components
 
@@ -89,3 +89,9 @@
 |------|------|--------|-------------|
 | 2026-11-01 | `PROJECT_STATE.md` | Created | Project architecture, state tracker, and modular roadmap |
 | 2026-11-01 | `src/app/globals.css` | Modified | Added obsidian dark theme, cyan/emerald design tokens, glassmorphism utilities |
+| 2026-11-01 | `src/components/ui/SpotlightGrid.tsx` | Created | Cursor-reactive spotlight background with ambient glows |
+| 2026-11-01 | `src/components/ui/DecryptedText.tsx` | Created | High-tech character scrambling/decoding text component |
+| 2026-11-01 | `src/components/ui/TiltCard3D.tsx` | Created | 3D perspective tilt card with dynamic light glare |
+| 2026-11-01 | `src/components/ui/MagneticButton.tsx` | Created | Physics-based magnetic attraction button component |
+| 2026-11-01 | `src/components/ui/TechMarquee.tsx` | Created | Infinite smooth looping marquee for skills |
+| 2026-11-01 | `src/components/ui/InteractiveCanvas3D.tsx` | Created | Three.js procedural crystalline wireframe with parallax |
