@@ -57,12 +57,12 @@
 - [x] Commit & state update for UI primitives
 
 ### Phase 3: Layout & Navigation Components
-- [/] `Navbar`: Glassmorphic floating header with active section tracking, logo, resume download button, and mobile sheet menu
-- [ ] `Footer`: Polished footer with quick navigation, social links, status indicator, and copyright
-- [ ] Commit & state update for layout components
+- [x] `Navbar`: Glassmorphic floating header with active section tracking, logo, resume download button, and mobile sheet menu
+- [x] `Footer`: Polished footer with quick navigation, social links, status indicator, and copyright
+- [x] Commit & state update for layout components
 
 ### Phase 4: Portfolio Sections Architecture (`src/components/sections/`)
-- [ ] `HeroSection`: Impactful introduction with Amged's name, `DecryptedText` role, `InteractiveCanvas3D`, availability badge, and magnetic CTAs
+- [/] `HeroSection`: Impactful introduction with Amged's name, `DecryptedText` role, `InteractiveCanvas3D`, availability badge, and magnetic CTAs
 - [ ] `AboutSection`: Personal summary, Computer Science background at Mansoura University, and key highlights
 - [ ] `SkillsSection`: Categorized technical skill matrix (Frameworks, UI Architecture, Data & Tools) + `TechMarquee`
 - [ ] `ProjectsSection`: Featured interactive cards for **Masar** (with RTL badge & live link), **FlowDesk**, and **Budgetly**
@@ -95,3 +95,5 @@
 | 2026-11-01 | `src/components/ui/MagneticButton.tsx` | Created | Physics-based magnetic attraction button component |
 | 2026-11-01 | `src/components/ui/TechMarquee.tsx` | Created | Infinite smooth looping marquee for skills |
 | 2026-11-01 | `src/components/ui/InteractiveCanvas3D.tsx` | Created | Three.js procedural crystalline wireframe with parallax |
+| 2026-11-01 | `src/components/layout/Navbar.tsx` | Created | Glassmorphic floating navigation header with active spy and resume CTA |
+| 2026-11-01 | `src/components/layout/Footer.tsx` | Created | Architectural footer with live availability and quick social channels |
