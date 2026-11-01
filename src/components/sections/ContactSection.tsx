@@ -12,32 +12,63 @@ import {
   Send,
   Sparkles,
   MapPin,
+  Loader2,
+  AlertCircle,
+  CheckCircle2,
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/ui/Icons';
 
 export function ContactSection() {
   const { personalInfo } = portfolioData;
   const [copied, setCopied] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const copyEmail = () => {
     navigator.clipboard.writeText(personalInfo.email);
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setTimeout(() => setCopied(false), 2400);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
-    
-    // Create mailto link as fallback or direct sender
-    const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
-    window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
-    setFormSubmitted(true);
+
+    setStatus('loading');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch(
+        `https://formsubmit.co/ajax/${personalInfo.email}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+            _subject: `Portfolio Inquiry from ${formData.name}`,
+          }),
+        }
+      );
+
+      const result = await response.json();
+
+      if (response.ok && (result.success === 'true' || result.success === true || response.status === 200)) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error(result.message || 'Failed to dispatch message.');
+      }
+    } catch (err: unknown) {
+      setStatus('error');
+      const msg = err instanceof Error ? err.message : 'Unable to connect to form service.';
+      setErrorMessage(msg);
+    }
   };
 
   return (
@@ -56,7 +87,7 @@ export function ContactSection() {
             </span>
           </h2>
           <p className="max-w-2xl text-base leading-relaxed text-slate-400">
-            Open for Frontend Developer roles, engineering teams, and high-impact web interface projects.
+            Open for Frontend Developer roles, high-performing engineering teams, and ambitious web products.
           </p>
         </div>
 
@@ -65,12 +96,12 @@ export function ContactSection() {
           {/* Left Column: Direct Fast Channels */}
           <div className="lg:col-span-5 space-y-6">
             <div className="rounded-2xl border border-white/10 bg-[#0c0c16]/80 p-6 sm:p-8 backdrop-blur-xl space-y-6">
-              <h3 className="text-xl font-semibold text-white">Direct Channels</h3>
-              
+              <h3 className="text-xl font-semibold text-white">Direct Communication</h3>
+
               {/* WhatsApp Fast Button */}
               <div className="space-y-2">
                 <span className="font-mono text-xs uppercase tracking-wider text-emerald-400">
-                  Fastest Response (WhatsApp):
+                  Fastest Direct Channel:
                 </span>
                 <MagneticButton
                   href={personalInfo.whatsappUrl}
@@ -83,28 +114,41 @@ export function ContactSection() {
                 </MagneticButton>
               </div>
 
-              {/* Email Copy Card */}
+              {/* Email Card (Clickable mailto: + One-Click Copy Button with Toast) */}
               <div className="space-y-2">
-                <span className="font-mono text-xs uppercase tracking-wider text-cyan-400">
-                  Email Address:
-                </span>
-                <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] p-3 text-sm text-slate-200">
-                  <div className="flex items-center gap-2 truncate">
-                    <Mail className="h-4 w-4 text-cyan-400 shrink-0" />
-                    <span className="truncate font-mono text-xs sm:text-sm">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs uppercase tracking-wider text-cyan-400">
+                    Official Email:
+                  </span>
+                  {copied && (
+                    <span className="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded animate-fade-in">
+                      Email Copied!
+                    </span>
+                  )}
+                </div>
+
+                <div className="relative flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] p-3 text-sm text-slate-200 transition-colors hover:border-cyan-400/40">
+                  <a
+                    href={`mailto:${personalInfo.email}`}
+                    className="flex items-center gap-2 truncate text-slate-200 hover:text-cyan-300 transition-colors group"
+                    title="Click to open mail client"
+                  >
+                    <Mail className="h-4 w-4 text-cyan-400 shrink-0 group-hover:scale-110 transition-transform" />
+                    <span className="truncate font-mono text-xs sm:text-sm underline-offset-4 group-hover:underline">
                       {personalInfo.email}
                     </span>
-                  </div>
+                  </a>
+
                   <button
                     type="button"
                     onClick={copyEmail}
-                    className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-slate-300 transition-colors hover:border-cyan-400/40 hover:text-cyan-300 shrink-0"
-                    aria-label="Copy Email"
+                    className="ml-2 flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-slate-300 transition-all hover:border-cyan-400/40 hover:bg-cyan-500/10 hover:text-cyan-300 shrink-0 active:scale-95"
+                    aria-label="Copy Email to Clipboard"
                   >
                     {copied ? (
                       <>
                         <Check className="h-3.5 w-3.5 text-emerald-400" />
-                        <span className="text-emerald-400 font-mono text-xs">Copied</span>
+                        <span className="text-emerald-400 font-mono text-xs font-semibold">Copied!</span>
                       </>
                     ) : (
                       <>
@@ -116,15 +160,17 @@ export function ContactSection() {
                 </div>
               </div>
 
-              {/* Location & Status */}
+              {/* Location & Phone Info */}
               <div className="pt-4 border-t border-white/10 space-y-3">
-                <div className="flex items-center gap-2 text-xs text-slate-400">
-                  <MapPin className="h-4 w-4 text-cyan-400" />
+                <div className="flex items-center gap-2 text-xs text-slate-300">
+                  <MapPin className="h-4 w-4 text-cyan-400 shrink-0" />
                   <span>{personalInfo.location}</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-slate-400">
-                  <Phone className="h-4 w-4 text-cyan-400" />
-                  <span>{personalInfo.phone}</span>
+                <div className="flex items-center gap-2 text-xs text-slate-300">
+                  <Phone className="h-4 w-4 text-emerald-400 shrink-0" />
+                  <a href={`tel:${personalInfo.phone}`} className="hover:text-emerald-300 transition-colors">
+                    {personalInfo.phone}
+                  </a>
                 </div>
               </div>
 
@@ -134,7 +180,7 @@ export function ContactSection() {
                   href={personalInfo.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] py-2.5 text-xs font-medium text-slate-300 transition-all hover:border-cyan-400 hover:text-cyan-300"
+                  className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] py-2.5 text-xs font-medium text-slate-300 transition-all hover:border-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10"
                 >
                   <LinkedinIcon className="h-4 w-4 text-cyan-400" />
                   <span>LinkedIn</span>
@@ -143,7 +189,7 @@ export function ContactSection() {
                   href={personalInfo.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] py-2.5 text-xs font-medium text-slate-300 transition-all hover:border-violet-400 hover:text-violet-300"
+                  className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] py-2.5 text-xs font-medium text-slate-300 transition-all hover:border-violet-400 hover:text-violet-300 hover:bg-violet-500/10"
                 >
                   <GithubIcon className="h-4 w-4 text-violet-400" />
                   <span>GitHub</span>
@@ -155,28 +201,64 @@ export function ContactSection() {
           {/* Right Column: Send Direct Message Form */}
           <div className="lg:col-span-7">
             <div className="rounded-2xl border border-white/10 bg-[#0c0c16]/80 p-6 sm:p-8 backdrop-blur-xl">
-              <h3 className="text-xl font-semibold text-white">Send a Message</h3>
+              <h3 className="text-xl font-semibold text-white">Send Direct Message</h3>
               <p className="mt-1 text-xs text-slate-400">
-                Have a question, job opportunity, or want to discuss a project? Drop a note below.
+                Have a project or job opening? Leave a message here and it will be sent directly to my inbox.
               </p>
 
-              {formSubmitted ? (
-                <div className="mt-8 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-6 text-center text-emerald-300">
-                  <Check className="mx-auto h-8 w-8 text-emerald-400 mb-2" />
-                  <h4 className="text-base font-semibold">Message Ready to Send!</h4>
-                  <p className="mt-1 text-xs text-emerald-400/80">
-                    Your email client should have opened with your draft. If not, feel free to contact me via WhatsApp or directly at {personalInfo.email}.
-                  </p>
+              {status === 'success' ? (
+                <div className="mt-8 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-8 text-center text-emerald-300 space-y-4 shadow-[0_0_30px_rgba(16,185,129,0.15)]">
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/20 border border-emerald-400/40">
+                    <CheckCircle2 className="h-8 w-8 text-emerald-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-white">Message Delivered Successfully!</h4>
+                    <p className="mt-2 text-sm text-slate-300 max-w-md mx-auto">
+                      Thank you for getting in touch. I have received your email and will get back to you within 24 hours.
+                    </p>
+                  </div>
                   <button
                     type="button"
-                    onClick={() => setFormSubmitted(false)}
-                    className="mt-4 rounded-lg border border-emerald-500/30 bg-emerald-500/20 px-4 py-1.5 text-xs font-medium"
+                    onClick={() => setStatus('idle')}
+                    className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-500/20 px-5 py-2 text-xs font-semibold text-emerald-200 transition-all hover:bg-emerald-500/30"
                   >
-                    Send Another Message
+                    Send Another Note
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+                  {status === 'error' && (
+                    <div className="rounded-xl border border-rose-500/30 bg-rose-500/10 p-4 text-xs text-rose-300 space-y-2">
+                      <div className="flex items-center gap-2 font-semibold text-rose-200">
+                        <AlertCircle className="h-4 w-4 text-rose-400 shrink-0" />
+                        <span>Transmission Notice: {errorMessage || 'Network connection issue.'}</span>
+                      </div>
+                      <p className="text-slate-300">
+                        You can send your message directly via email client or WhatsApp:
+                      </p>
+                      <div className="flex flex-wrap gap-2 pt-1">
+                        <a
+                          href={`mailto:${personalInfo.email}?subject=${encodeURIComponent(
+                            `Portfolio message from ${formData.name || 'Visitor'}`
+                          )}&body=${encodeURIComponent(formData.message || '')}`}
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-rose-500/40 bg-rose-500/20 px-3 py-1 text-[11px] font-medium text-rose-200 hover:bg-rose-500/30 transition-colors"
+                        >
+                          <Mail className="h-3.5 w-3.5" />
+                          <span>Open in Mail App</span>
+                        </a>
+                        <a
+                          href={personalInfo.whatsappUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/40 bg-emerald-500/20 px-3 py-1 text-[11px] font-medium text-emerald-200 hover:bg-emerald-500/30 transition-colors"
+                        >
+                          <MessageCircle className="h-3.5 w-3.5" />
+                          <span>Chat on WhatsApp</span>
+                        </a>
+                      </div>
+                    </div>
+                  )}
+
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div className="space-y-1.5">
                       <label htmlFor="name" className="text-xs font-mono text-slate-400">
@@ -186,10 +268,11 @@ export function ContactSection() {
                         id="name"
                         type="text"
                         required
+                        disabled={status === 'loading'}
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="John Doe"
-                        className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white placeholder-slate-500 transition-colors focus:border-cyan-400 focus:outline-none"
+                        className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white placeholder-slate-500 transition-colors focus:border-cyan-400 focus:outline-none disabled:opacity-50"
                       />
                     </div>
                     <div className="space-y-1.5">
@@ -200,10 +283,11 @@ export function ContactSection() {
                         id="email"
                         type="email"
                         required
+                        disabled={status === 'loading'}
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="john@example.com"
-                        className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white placeholder-slate-500 transition-colors focus:border-cyan-400 focus:outline-none"
+                        className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white placeholder-slate-500 transition-colors focus:border-cyan-400 focus:outline-none disabled:opacity-50"
                       />
                     </div>
                   </div>
@@ -216,19 +300,30 @@ export function ContactSection() {
                       id="message"
                       rows={5}
                       required
+                      disabled={status === 'loading'}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Hi Amged, I'd like to talk about..."
-                      className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white placeholder-slate-500 transition-colors focus:border-cyan-400 focus:outline-none"
+                      placeholder="Hi Amged, I'd like to discuss a frontend role / web project..."
+                      className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-white placeholder-slate-500 transition-colors focus:border-cyan-400 focus:outline-none disabled:opacity-50"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 shadow-[0_0_20px_rgba(0,240,255,0.3)] transition-all hover:bg-cyan-300 hover:shadow-[0_0_30px_rgba(0,240,255,0.5)]"
+                    disabled={status === 'loading'}
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-400 px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-[0_0_20px_rgba(0,240,255,0.3)] transition-all hover:bg-cyan-300 hover:shadow-[0_0_30px_rgba(0,240,255,0.5)] disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    <Send className="h-4 w-4" />
-                    <span>Send Message</span>
+                    {status === 'loading' ? (
+                      <>
+                        <Loader2 className="h-4 w-4 animate-spin text-slate-950" />
+                        <span>Sending message...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="h-4 w-4" />
+                        <span>Send Message</span>
+                      </>
+                    )}
                   </button>
                 </form>
               )}

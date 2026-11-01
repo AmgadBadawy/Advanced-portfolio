@@ -23,6 +23,11 @@ export interface Certification {
   image?: string;
 }
 
+export interface Language {
+  language: string;
+  proficiency: string;
+}
+
 export const portfolioData = {
   personalInfo: {
     name: "Amged Badawy",
@@ -39,6 +44,11 @@ export const portfolioData = {
     summary:
       "Frontend Developer and Computer Science graduate from Mansoura University specializing in building high-performance, accessible, and responsive web applications with React 19, Next.js (App Router), and TypeScript. Experienced in crafting scalable design systems, bidirectional Arabic RTL interfaces, and resilient client-side state architectures.",
   },
+
+  languages: [
+    { language: "Arabic", proficiency: "Native" },
+    { language: "English", proficiency: "Intermediate" },
+  ] as Language[],
 
   skillCategories: [
     {
@@ -125,27 +135,6 @@ export const portfolioData = {
       liveUrl: "https://flow-desk-rho-ten.vercel.app/",
       githubUrl: "https://github.com/AmgadBadawy",
       image: "/projects/flowdesk.png",
-    },
-    {
-      title: "AutoCare Express",
-      subtitle: "On-Demand Car Care & Wash Booking Platform",
-      badge: "Commercial Booking App",
-      description:
-        "A responsive on-demand vehicle service web application enabling customers to select detailing packages, book preferred time slots, track mobile technician status, and manage payments.",
-      highlights: [
-        "Engineered an interactive multi-step booking wizard with dynamic pricing computation and instant schedule verification.",
-        "Built real-time order tracking and service progress timelines with clean optimistic UI updates.",
-        "Optimized mobile viewport touch targets and offline-resilient form state management.",
-      ],
-      techStack: [
-        "React",
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "State Management",
-      ],
-      githubUrl: "https://github.com/AmgadBadawy",
-      image: "/projects/carwash.png",
     },
     {
       title: "Budgetly",

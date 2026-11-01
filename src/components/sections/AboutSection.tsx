@@ -3,6 +3,7 @@
 import React from 'react';
 import { portfolioData } from '@/data/portfolio';
 import { TiltCard3D } from '@/components/ui/TiltCard3D';
+import { FolderFloat } from '@/components/ui/FolderFloat';
 import {
   GraduationCap,
   Layers,
@@ -10,6 +11,7 @@ import {
   Code2,
   CheckCircle2,
   Sparkles,
+  Languages,
 } from 'lucide-react';
 
 export function AboutSection() {
@@ -109,6 +111,33 @@ export function AboutSection() {
                 </div>
               </div>
             </div>
+
+            {/* Languages Card */}
+            <div className="rounded-2xl border border-white/10 bg-[#0c0c16]/70 p-6 backdrop-blur-xl">
+              <div className="flex items-center gap-3 border-b border-white/10 pb-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-cyan-400/30 bg-cyan-500/10 text-cyan-300">
+                  <Languages className="h-5 w-5" />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold text-white">Languages</h4>
+                  <span className="text-xs font-mono text-slate-400">Communication &amp; Fluency</span>
+                </div>
+              </div>
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="flex items-center justify-between rounded-xl border border-white/5 bg-white/[0.02] px-4 py-3 text-sm">
+                  <span className="font-semibold text-white">Arabic</span>
+                  <span className="font-mono text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full">
+                    Native
+                  </span>
+                </div>
+                <div className="flex items-center justify-between rounded-xl border border-white/5 bg-white/[0.02] px-4 py-3 text-sm">
+                  <span className="font-semibold text-white">English</span>
+                  <span className="font-mono text-xs text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 px-3 py-1 rounded-full">
+                    Intermediate
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Right Column: 3 Core Pillars in 3D Tilt Cards */}
@@ -131,6 +160,24 @@ export function AboutSection() {
               </TiltCard3D>
             ))}
           </div>
+        </div>
+
+        {/* Interactive Physics Floating Core Strengths */}
+        <div className="mt-12">
+          <FolderFloat
+            physics={true}
+            trigger="hover"
+            label="Engineering Core"
+            sublabel="Drag & Throw"
+            items={[
+              'Clean Architecture',
+              'Next.js App Router',
+              'GSAP & 3D Motion',
+              'Pixel-Perfect UI',
+              'Performance 100%',
+              'TypeScript Strict',
+            ]}
+          />
         </div>
       </div>
     </section>

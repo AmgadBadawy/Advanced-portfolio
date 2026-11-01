@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { portfolioData, Project } from '@/data/portfolio';
 import { TiltCard3D } from '@/components/ui/TiltCard3D';
+import { Folder, FolderItem } from '@/components/ui/Folder';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 import {
   ExternalLink,
@@ -16,6 +17,16 @@ import { GithubIcon } from '@/components/ui/Icons';
 
 export function ProjectsSection() {
   const { projects } = portfolioData;
+
+  // React Bits Interactive Glass Folder Dossier Items
+  const dossierItems: FolderItem[] = projects.map((project) => ({
+    title: project.title,
+    subtitle: project.subtitle,
+    image: project.image,
+    tags: project.techStack,
+    link: project.liveUrl || project.githubUrl,
+    badge: project.badge,
+  }));
 
   return (
     <section id="projects" className="relative py-24 sm:py-32">
@@ -37,8 +48,22 @@ export function ProjectsSection() {
           </p>
         </div>
 
+        {/* Interactive React Bits Dossier Glass Folder */}
+        <div className="mt-10 mb-14">
+          <Folder
+            variant="glass"
+            mode="flap"
+            theme="dark"
+            color="#3d8bff"
+            label="Featured Dossier"
+            peek={true}
+            draggable={true}
+            items={dossierItems}
+          />
+        </div>
+
         {/* Projects Showcase */}
-        <div className="mt-14 space-y-16">
+        <div className="space-y-16">
           {projects.map((project: Project, index: number) => {
             const isEven = index % 2 === 0;
 

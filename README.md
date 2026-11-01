@@ -66,7 +66,7 @@ A high-performance personal portfolio engineered for **Amged Badawy** (Frontend 
 advanced-portfolio/
 ├── public/
 │   ├── certificates/            # Verified credentials (Manara, CCIC, English tracks)
-│   ├── projects/                # High-res mockups (Masar, FlowDesk, AutoCare, Budgetly)
+│   ├── projects/                # High-res mockups (Masar, FlowDesk, Budgetly)
 │   ├── AmgedBadawy-CV.pdf       # ATS-friendly, clean clickable resume
 │   └── portfolio-preview.png    # Live interface capture
 ├── src/

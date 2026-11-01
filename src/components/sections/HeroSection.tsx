@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import { portfolioData } from '@/data/portfolio';
 import { DecryptedText } from '@/components/ui/DecryptedText';
-import { InteractiveCanvas3D } from '@/components/ui/InteractiveCanvas3D';
+import { Lanyard } from '@/components/ui/Lanyard';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 import {
   FileDown,
@@ -161,18 +161,25 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column: Three.js Interactive 3D Canvas */}
-          <div className="lg:col-span-5 flex items-center justify-center">
-            <div className="relative flex items-center justify-center">
-              {/* Backlight Glow */}
-              <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-tr from-cyan-500/15 via-violet-500/10 to-emerald-500/15 blur-3xl" />
+          {/* Right Column: React Bits 3D Interactive Lanyard & ID Card */}
+          <div className="lg:col-span-5 flex flex-col items-center justify-center">
+            <div className="relative flex w-full flex-col items-center justify-center">
+              {/* Backlight Ambient Glow */}
+              <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-tr from-cyan-500/20 via-blue-500/15 to-emerald-500/20 blur-3xl" />
               
-              {/* 3D Canvas */}
-              <InteractiveCanvas3D className="mx-auto" />
+              {/* 3D Holographic Lanyard Component */}
+              <Lanyard
+                frontImage="/amged-id-card.png"
+                finish="holographic"
+                metal="silver"
+                interactive={true}
+                className="mx-auto"
+              />
 
-              {/* Decorative Tech Tag */}
-              <div className="absolute -bottom-2 right-4 rounded-xl border border-white/10 bg-[#0e0e18]/80 px-3.5 py-1.5 text-[11px] font-mono text-cyan-300 backdrop-blur-md shadow-lg">
-                <span className="text-slate-500">const</span> engine = <span className="text-emerald-400">&quot;Three.js + GSAP&quot;</span>;
+              {/* Decorative Tech Hint Tag */}
+              <div className="mt-2 flex items-center gap-2 rounded-xl border border-white/10 bg-[#0e0e18]/80 px-3.5 py-1.5 text-[11px] font-mono text-cyan-300 backdrop-blur-md shadow-lg">
+                <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                <span>Interactive 3D ID Card • Drag &amp; Swing</span>
               </div>
             </div>
           </div>
