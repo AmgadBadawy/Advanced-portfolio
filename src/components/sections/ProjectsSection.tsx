@@ -7,12 +7,12 @@ import { TiltCard3D } from '@/components/ui/TiltCard3D';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 import {
   ExternalLink,
-  Github,
   CheckCircle2,
   Sparkles,
   Layers,
   Globe,
 } from 'lucide-react';
+import { GithubIcon } from '@/components/ui/Icons';
 
 export function ProjectsSection() {
   const { projects } = portfolioData;
@@ -161,7 +161,7 @@ export function ProjectsSection() {
                           rel="noopener noreferrer"
                           className="flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.05] px-4 py-2.5 text-xs font-medium text-slate-200 transition-all hover:border-cyan-400/40 hover:text-white"
                         >
-                          <Github className="h-3.5 w-3.5 text-slate-400" />
+                          <GithubIcon className="h-3.5 w-3.5 text-slate-400" />
                           <span>Codebase</span>
                         </MagneticButton>
                       )}

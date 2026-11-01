@@ -6,8 +6,6 @@ import { MagneticButton } from '@/components/ui/MagneticButton';
 import {
   MessageCircle,
   Mail,
-  Linkedin,
-  Github,
   Phone,
   Copy,
   Check,
@@ -15,6 +13,7 @@ import {
   Sparkles,
   MapPin,
 } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from '@/components/ui/Icons';
 
 export function ContactSection() {
   const { personalInfo } = portfolioData;
@@ -137,7 +136,7 @@ export function ContactSection() {
                   rel="noopener noreferrer"
                   className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] py-2.5 text-xs font-medium text-slate-300 transition-all hover:border-cyan-400 hover:text-cyan-300"
                 >
-                  <Linkedin className="h-4 w-4 text-cyan-400" />
+                  <LinkedinIcon className="h-4 w-4 text-cyan-400" />
                   <span>LinkedIn</span>
                 </a>
                 <a
@@ -146,7 +145,7 @@ export function ContactSection() {
                   rel="noopener noreferrer"
                   className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] py-2.5 text-xs font-medium text-slate-300 transition-all hover:border-violet-400 hover:text-violet-300"
                 >
-                  <Github className="h-4 w-4 text-violet-400" />
+                  <GithubIcon className="h-4 w-4 text-violet-400" />
                   <span>GitHub</span>
                 </a>
               </div>

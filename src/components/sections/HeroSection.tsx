@@ -9,12 +9,11 @@ import {
   FileDown,
   ArrowRight,
   MessageCircle,
-  Linkedin,
-  Github,
   Mail,
   MapPin,
   Sparkles,
 } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from '@/components/ui/Icons';
 import { gsap } from 'gsap';
 
 export function HeroSection() {
@@ -141,7 +140,7 @@ export function HeroSection() {
                 aria-label="GitHub Profile"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-300 transition-all hover:border-cyan-400 hover:bg-cyan-500/10 hover:text-cyan-300 hover:scale-110"
               >
-                <Github className="h-4 w-4" />
+                <GithubIcon className="h-4 w-4" />
               </a>
               <a
                 href={personalInfo.linkedinUrl}
@@ -150,7 +149,7 @@ export function HeroSection() {
                 aria-label="LinkedIn Profile"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-slate-300 transition-all hover:border-cyan-400 hover:bg-cyan-500/10 hover:text-cyan-300 hover:scale-110"
               >
-                <Linkedin className="h-4 w-4" />
+                <LinkedinIcon className="h-4 w-4" />
               </a>
               <a
                 href={`mailto:${personalInfo.email}`}

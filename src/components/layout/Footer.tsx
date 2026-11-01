@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { portfolioData } from '@/data/portfolio';
-import { Github, Linkedin, Mail, MessageCircle, MapPin, ArrowUp, Heart } from 'lucide-react';
+import { Mail, MessageCircle, MapPin, ArrowUp } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from '@/components/ui/Icons';
 
 export function Footer() {
   const scrollToTop = () => {
@@ -96,7 +97,7 @@ export function Footer() {
                 aria-label="LinkedIn"
                 className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2 text-xs font-medium text-slate-300 transition-all hover:border-cyan-500/50 hover:bg-cyan-500/10 hover:text-cyan-300"
               >
-                <Linkedin className="h-4 w-4 text-cyan-400" />
+                <LinkedinIcon className="h-4 w-4 text-cyan-400" />
                 <span>LinkedIn</span>
               </a>
               <a
@@ -106,7 +107,7 @@ export function Footer() {
                 aria-label="GitHub"
                 className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2 text-xs font-medium text-slate-300 transition-all hover:border-violet-500/50 hover:bg-violet-500/10 hover:text-violet-300"
               >
-                <Github className="h-4 w-4 text-violet-400" />
+                <GithubIcon className="h-4 w-4 text-violet-400" />
                 <span>GitHub</span>
               </a>
               <a
@@ -127,7 +128,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-xs text-slate-500 sm:flex-row">
           <p className="flex items-center gap-1">
-            © {new Date().getFullYear()} {portfolioData.personalInfo.name}. Engineered with Next.js, Three.js & React Bits.
+            © 2026 {portfolioData.personalInfo.name}. Engineered with Next.js, Three.js &amp; React Bits.
           </p>
           <button
             type="button"
