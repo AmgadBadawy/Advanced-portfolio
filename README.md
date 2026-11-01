@@ -1,122 +1,134 @@
-# Amged Badawy — Senior Frontend Architect & Interactive Portfolio
+<div align="center">
 
-![Next.js](https://img.shields.io/badge/Next.js-16.4.3-black?style=for-the-badge&logo=next.js)
-![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?style=for-the-badge&logo=tailwindcss)
-![Three.js](https://img.shields.io/badge/Three.js-0.187-black?style=for-the-badge&logo=three.js)
-![GSAP](https://img.shields.io/badge/GSAP-3.15-green?style=for-the-badge&logo=greensock)
+# Amged Badawy — Modern Interactive Portfolio
+### **Frontend Developer & UI Architect**
 
-> High-performance, interactive personal portfolio engineered for **Amged Badawy** (Junior Frontend Developer / Computer Science Graduate from Mansoura University). Built with Next.js 16 App Router, TypeScript, custom React Bits primitives, GSAP animations, and procedural Three.js.
+[![Live Demo](https://img.shields.io/badge/Live_Demo-amged--badawy.vercel.app-00f0ff?style=for-the-badge&logo=vercel&logoColor=black)](https://amged-badawy.vercel.app)
+[![GitHub](https://img.shields.io/badge/GitHub-AmgadBadawy-181717?style=for-the-badge&logo=github)](https://github.com/AmgadBadawy)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Amged_Badawy-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/amged-badawy-7a48b1177/)
 
----
+<br />
 
-## 🌟 Architecture & Key Features
+[![Next.js](https://img.shields.io/badge/Next.js-16.4.3-000000?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.3-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![GSAP](https://img.shields.io/badge/GSAP-3.15-88CE02?style=flat-square&logo=greensock&logoColor=white)](https://gsap.com/)
+[![Three.js](https://img.shields.io/badge/Three.js-0.187-000000?style=flat-square&logo=three.js&logoColor=white)](https://threejs.org/)
+[![Playwright](https://img.shields.io/badge/Playwright-E2E-2EAD33?style=flat-square&logo=playwright&logoColor=white)](https://playwright.dev/)
 
-### 1. Server Components & Leaf Client Isolation
-- The root page (`src/app/page.tsx`) and layout (`src/app/layout.tsx`) are pure **React Server Components**, ensuring instantaneous initial paint, minimal client bundle weight, and optimal SEO.
-- Interactive animations and WebGL hooks are isolated inside `src/components/ui/` and `src/components/sections/` using `'use client'` strictly at the component boundary.
+<br />
 
-### 2. Custom React Bits & Motion Engineering
-- **`SpotlightGrid`**: Dynamic cursor-reactive ambient radial illumination over a precision geometric grid.
-- **`DecryptedText`**: High-tech character decoding animation inspired by React Bits, decoding developer roles upon viewport entry.
-- **`TiltCard3D`**: Multi-axis 3D perspective tilt with real-time specular sheen reflections on project and skill cards.
-- **`MagneticButton`**: Physics-based cursor attraction with spring recovery for primary CTAs and social channels.
-- **`TechMarquee`**: Smooth infinite horizontal ticker with hover-pause and gradient edge masking.
-- **`InteractiveCanvas3D`**: Procedural Three.js crystalline wireframe with glowing vertices, orbital core, and mouse parallax.
+<p align="center">
+  <img src="public/projects/portfolio-preview.png" alt="Amged Badawy Portfolio Interface Preview" width="100%" style="border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 50px rgba(0,0,0,0.5);" />
+</p>
 
-### 3. Impeccable & Taste-Skill Visual System
-- High-contrast **Obsidian Palette** (`#050508`) with electric cyan (`#00f0ff`) and cyber emerald (`#10b981`) accents.
-- Strict rejection of generic AI templates: generous spatial rhythm, glassmorphism borders (`rgba(255,255,255,0.08)`), and accessible typography using **Geist Sans** and **Geist Mono**.
-- Fully accessible keyboard navigation, ARIA attributes, and reduced-motion compliance (`prefers-reduced-motion`).
-
-### 4. Arabic RTL First Mastery
-- Deep expertise in Right-to-Left bidirectional layouts, CSS logical properties, and Arabic typographic hierarchy — exemplified in the **Masar** government services platform case study.
-
-### 5. 100% Real Production Data
-- No dummy data or placeholder text. All content is directly drawn from `src/data/portfolio.ts` and actual media in `public/`:
-  - **Masar**: Arabic-first government services guide (Live on Vercel).
-  - **FlowDesk**: Workflow productivity interface (Live on Vercel).
-  - **Budgetly**: AI-assisted smart home budget management system (Graduation Project).
-  - **Credentials**: Manara React Frontend Engineering, Mansoura University CCIC, and Courssat UK English tracks.
+</div>
 
 ---
 
-## 🛠️ Tech Stack
+## 🚀 Overview
 
-| Category | Technology |
-|---|---|
-| **Framework** | Next.js 16.4.3 (App Router, Turbopack, Cache Components) |
-| **Language** | TypeScript 5 (Strict Mode) |
-| **Styling** | Tailwind CSS v4 (Design Tokens via `@theme inline`) |
-| **3D & Graphics** | Three.js 0.187 + WebGL Canvas |
-| **Animation** | GSAP 3.15 + ScrollTrigger, Framer Motion 14 |
-| **Icons** | Lucide React + Custom SVG Icons |
-| **Testing** | Playwright E2E Suite |
+A high-performance personal portfolio engineered for **Amged Badawy** (Frontend Developer and Computer Science graduate from Mansoura University). Built from the ground up to showcase production-grade frontend architecture, bespoke **React Bits** interactive primitives, procedural **Three.js** 3D graphics, smooth **GSAP** timelines, and specialized **Arabic Right-to-Left (RTL)** engineering.
+
+### 🔗 Live Production URL
+* **Live Site:** [https://amged-badawy.vercel.app](https://amged-badawy.vercel.app)
+* **GitHub Repository:** [https://github.com/AmgadBadawy/Advanced-portfolio](https://github.com/AmgadBadawy/Advanced-portfolio)
+* **Download Curriculum Vitae:** [Amged Badawy CV (PDF)](public/AmgedBadawy-CV.pdf)
 
 ---
 
-## 📁 Project Structure
+## 💎 Architectural Highlights & Design System
+
+### 1. Hybrid Server-Client Boundary Isolation
+* **100% Static Root Rendering:** `page.tsx` and `layout.tsx` remain pure React Server Components for instantaneous first contentful paint (FCP), minimal hydration overhead, and optimal Core Web Vitals.
+* **Isomorphic Interactive Nodes:** All animations, physics, and canvas lifecycles are isolated in `src/components/ui/` with strictly guarded `'use client'` leaves.
+
+### 2. Custom React Bits & 3D Interactive Primitives
+* **`SpotlightGrid`**: Cursor-tracking radial spotlight interacting with an obsidian grid matrix and ambient breathing glow fields.
+* **`DecryptedText`**: High-tech character scrambling/decoding algorithm that decrypts developer roles when scrolled into view.
+* **`TiltCard3D`**: Multi-axis perspective tilt with dynamic specular sheen reflecting cursor angle on project showcases.
+* **`MagneticButton`**: Spring physics magnetic pull effect applied to primary action CTAs and social channels.
+* **`TechMarquee`**: Smooth infinite horizontal skill ticker with hover-pause and gradient edge alpha masks.
+* **`InteractiveCanvas3D`**: Procedural dual-layer crystalline polyhedron rendered in Three.js with glowing vertex nodes and real-time mouse parallax.
+
+### 3. Arabic RTL-First Specialization
+* Proven expertise in bidirectional layouts, CSS logical properties, and typography hierarchy for Arabic-first digital products — demonstrated in the **Masar** governmental citizen guide.
+
+### 4. Zero Placeholder Data
+* Built on verified real-world projects, live production deployments, institutional certifications (Manara, Mansoura University CCIC, COURSSAT UK), and Computer Science degree credentials.
+
+---
+
+## 📁 Clean Codebase Hierarchy
 
 ```text
 advanced-portfolio/
-├── .agent/skills/               # Full agent skills repository (gsap, img2threejs, impeccable, etc.)
 ├── public/
-│   ├── certificates/            # Verified credentials (manara, ccic, english-courses)
-│   ├── projects/                # Production screenshots (masar, flowdesk, budgety)
-│   └── AmgedBadawy-CV.pdf       # Downloadable resume
+│   ├── certificates/            # Verified credentials (Manara, CCIC, English tracks)
+│   ├── projects/                # High-res mockups (Masar, FlowDesk, AutoCare, Budgetly)
+│   ├── AmgedBadawy-CV.pdf       # ATS-friendly, clean clickable resume
+│   └── portfolio-preview.png    # Live interface capture
 ├── src/
 │   ├── app/
-│   │   ├── globals.css          # Design tokens, obsidian dark theme, keyframes
-│   │   ├── layout.tsx           # SEO metadata, OpenGraph, Geist fonts
+│   │   ├── globals.css          # Design tokens, obsidian dark theme, keyframe styles
+│   │   ├── icon.tsx             # Dynamic edge favicon generator (ImageResponse)
+│   │   ├── layout.tsx           # SEO metadata, OpenGraph, Twitter card tags
+│   │   ├── opengraph-image.tsx  # Dynamic 1200x630 social share preview card
 │   │   └── page.tsx             # Root Server Component assembling all sections
 │   ├── components/
 │   │   ├── layout/              # Navbar and Footer components
 │   │   ├── sections/            # Hero, About, Skills, Projects, Certifications, Contact
 │   │   └── ui/                  # React Bits primitives (Spotlight, DecryptedText, TiltCard, 3D Canvas)
 │   └── data/
-│       └── portfolio.ts         # Authoritative developer information & project data
-├── PROJECT_STATE.md             # State tracking, architecture log, and phase checklist
+│       └── portfolio.ts         # Centralized developer information & project data
+├── playwright.config.ts         # End-to-end testing configuration
+├── tsconfig.json                # Strict TypeScript configuration
 └── package.json
 ```
 
 ---
 
-## 🚀 Getting Started
+## 🛠️ Local Development & Build
 
 ### Prerequisites
-- Node.js 18.18+ or Node.js 20+
-- npm or pnpm
+* **Node.js**: v18.18+ or v20+
+* **Package Manager**: `npm` (or `pnpm`)
 
-### Installation & Run
+### Setup Instructions
 
 ```bash
-# Clone the repository
+# 1. Clone repository
 git clone https://github.com/AmgadBadawy/Advanced-portfolio.git
 cd Advanced-portfolio
 
-# Install dependencies
+# 2. Install dependencies
 npm install
 
-# Run the local development server (Turbopack)
+# 3. Start local development server (Turbopack)
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Visit [http://localhost:3000](http://localhost:3000) to view the live local instance.
 
-### Production Build
+### Production Build & Verification
 
 ```bash
+# Build optimized static output
 npm run build
+
+# Start production server locally
 npm run start
 ```
 
 ---
 
-## 👤 Contact Amged Badawy
+## 📬 Contact & Connect
 
-- **Email:** [amgedbadawy04@gmail.com](mailto:amgedbadawy04@gmail.com)
-- **Phone / WhatsApp:** [+20 114 464 9776](https://wa.me/201144649776)
-- **LinkedIn:** [Amged Badawy](https://www.linkedin.com/in/amged-badawy-7a48b1177/)
-- **GitHub:** [AmgadBadawy](https://github.com/AmgadBadawy)
-- **Location:** Nasr City, Cairo, Egypt
+* **Developer:** Amged Badawy
+* **Role:** Frontend Developer
+* **Email:** [amgedbadawy04@gmail.com](mailto:amgedbadawy04@gmail.com)
+* **Phone / WhatsApp:** [+20 114 464 9776](https://wa.me/201144649776)
+* **Location:** Nasr City, Cairo, Egypt
+* **LinkedIn:** [linkedin.com/in/amged-badawy-7a48b1177](https://www.linkedin.com/in/amged-badawy-7a48b1177/)
+* **GitHub:** [github.com/AmgadBadawy](https://github.com/AmgadBadawy)

@@ -56,7 +56,7 @@ export function ContactSection() {
             </span>
           </h2>
           <p className="max-w-2xl text-base leading-relaxed text-slate-400">
-            Open for Junior Frontend roles, engineering teams, and high-impact web interface projects.
+            Open for Frontend Developer roles, engineering teams, and high-impact web interface projects.
           </p>
         </div>
 
