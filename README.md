@@ -3,7 +3,7 @@
 # Amged Badawy — Modern Interactive Portfolio
 ### **Frontend Developer & UI Architect**
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-amged--badawy.vercel.app-00f0ff?style=for-the-badge&logo=vercel&logoColor=black)](https://amged-badawy.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-portfolio--v2-00f0ff?style=for-the-badge&logo=vercel&logoColor=black)](https://portfolio-v2-phi-liart.vercel.app)
 [![GitHub](https://img.shields.io/badge/GitHub-AmgadBadawy-181717?style=for-the-badge&logo=github)](https://github.com/AmgadBadawy)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Amged_Badawy-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/amged-badawy-7a48b1177/)
 
@@ -32,7 +32,7 @@
 A high-performance personal portfolio engineered for **Amged Badawy** (Frontend Developer and Computer Science graduate from Mansoura University). Built from the ground up to showcase production-grade frontend architecture, bespoke **React Bits** interactive primitives, procedural **Three.js** 3D graphics, smooth **GSAP** timelines, and specialized **Arabic Right-to-Left (RTL)** engineering.
 
 ### 🔗 Live Production URL
-* **Live Site:** [https://amged-badawy.vercel.app](https://amged-badawy.vercel.app)
+* **Live Site:** [https://portfolio-v2-phi-liart.vercel.app](https://portfolio-v2-phi-liart.vercel.app)
 * **GitHub Repository:** [https://github.com/AmgadBadawy/Advanced-portfolio](https://github.com/AmgadBadawy/Advanced-portfolio)
 * **Download Curriculum Vitae:** [Amged Badawy CV (PDF)](public/AmgedBadawy-CV.pdf)
 
